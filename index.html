@@ -1,10 +1,252 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <title>ANTIBRAINROT_KID</title>
+<meta charset="UTF-8">
+<title>ANTIBRAINROT_KID</title>
+
+<style>
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  text-align: center;
+  overflow-x: hidden;
+  background: radial-gradient(circle at top, #000000, #111111);
+}
+
+/* ===== PARTICLES ===== */
+#particles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===== PAGES ===== */
+.page {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  min-height: 100vh;
+
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: 0.6s ease;
+
+  z-index: 2;
+}
+
+.page.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-block;
+  margin: 20px;
+  padding: 15px 30px;
+  border-radius: 30px;
+  background: #000;
+  border: 2px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #fff;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ===== GRID (executors) ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 180px);
+  gap: 25px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.grid .btn {
+  padding: 18px 35px;
+  font-size: 16px;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: rgba(0,0,0,0.6);
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 20px;
+  width: 300px;
+  border: 2px solid #fff;
+}
+
+/* ===== IMAGE ===== */
+.top-image {
+  margin-top: 40px;
+}
+
+.top-image img {
+  width: 200px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #fff;
+}
+</style>
+
 </head>
+
 <body>
-  <h1>Привет!</h1>
-  <p>Это мой первый сайт</p>
+
+<canvas id="particles"></canvas>
+
+<!-- HOME -->
+<div id="home" class="page active">
+
+  <div class="top-image">
+    <img src="https://i.ibb.co/fGT6R3NB/image.png">
+  </div>
+
+  <h1>ANTIBRAINROT_KID</h1>
+  <h2>Team of bypass.</h2>
+
+  <a href="https://discord.gg/FurMVU3cPc" class="btn">Official discord</a>
+  <a href="https://discord.gg/wVZRRApy6H" class="btn">Official discord 2</a>
+
+  <br>
+
+  <button class="btn" onclick="openExecutors()">Roblox executors</button>
+
+  <div class="card">
+    <h2>About</h2>
+    <p>Making scripts, shirts, audios in roblox and etc.</p>
+  </div>
+
+</div>
+
+<!-- EXECUTORS -->
+<div id="executors" class="page">
+
+  <h1>PC EXECUTORS</h1>
+
+  <div class="grid">
+    <button class="btn" onclick="openLink('xeno')">Xeno</button>
+    <button class="btn" onclick="openLink('jjsploit')">jjsploit</button>
+    <button class="btn" onclick="openLink('velocity')">Velocity</button>
+    <button class="btn" onclick="openLink('solara')">Solara</button>
+    <button class="btn" onclick="openLink('bunni')">Bunni</button>
+    <button class="btn" onclick="openLink('fogoty')">FogotySploit</button>
+  </div>
+
+  <h1>MOBILE EXECUTORS</h1>
+
+  <div class="grid">
+    <button class="btn" onclick="openLink('delta')">Delta</button>
+    <button class="btn" onclick="openLink('arceus')">Arceus X</button>
+    <button class="btn" onclick="openLink('codex')">Code X</button>
+    <button class="btn" onclick="openLink('punk')">Punk X</button>
+  </div>
+
+  <button class="btn" onclick="openLink('vega')">Vega X</button>
+
+  <br><br>
+
+  <button class="btn" onclick="goBack()">Back</button>
+
+</div>
+
+<script>
+function openExecutors() {
+  document.getElementById("home").classList.remove("active");
+  document.getElementById("executors").classList.add("active");
+}
+
+function goBack() {
+  document.getElementById("executors").classList.remove("active");
+  document.getElementById("home").classList.add("active");
+}
+
+/* ===== LINKS SYSTEM ===== */
+function openLink(app) {
+  const links = {
+    xeno: "https://xeno.now",
+    jjsploit: "https://wearedevs.net/d/JJSploit",
+    velocity: "https://realvelocity.xyz/",
+    solara: "https://getsolara.dev/",
+    bunni: "https://discord.gg/bunni-fun",
+    fogoty: "https://foggysoftworks.xyz/main.html",
+
+    delta: "https://deltaexploits.gg/",
+    arceus: "https://spdmteam.com/",
+    codex: "https://codex.lol/",
+    punk: "https://vegax.gg/",
+    vega: "https://wearedevs.net/d/Punk%20X"
+  };
+
+  if (links[app]) {
+    window.open(links[app], "_blank");
+  }
+}
+
+/* ===== PARTICLES ===== */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+function createParticles() {
+  particles = [];
+  for (let i = 0; i < 80; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2,
+      dx: (Math.random() - 0.5) * 0.5,
+      dy: (Math.random() - 0.5) * 0.5
+    });
+  }
+}
+createParticles();
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "white";
+
+  particles.forEach(p => {
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if (p.x < 0) p.x = canvas.width;
+    if (p.x > canvas.width) p.x = 0;
+    if (p.y < 0) p.y = canvas.height;
+    if (p.y > canvas.height) p.y = 0;
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
 </body>
 </html>
