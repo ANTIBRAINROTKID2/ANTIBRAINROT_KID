@@ -1,139 +1,136 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>ANTIBRAINROT_KID</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-html, body {
-  height: 100%;
-  font-family: "ZegerSYSTEM Alt", 'Press Start 2P', monospace;
-  cursor: none;
-}
-
-/* ===== WHITE NEON CUSTOM CURSOR ===== */
-#cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  box-shadow: 
-    0 0 15px #ffffff,
-    0 0 30px #ffffff,
-    0 0 50px #ffffff;
-  transition: width 0.2s, height 0.2s;
-  mix-blend-mode: difference;
-}
-
-#cursor::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 6px;
-  height: 6px;
-  background: #ffffff;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 12px #ffffff;
-}
-
-/* Падающие частицы — чисто белые */
-.particle {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: #ffffff;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  box-shadow: 0 0 10px #ffffff;
-  opacity: 0;
-}
-
-/* Остальные стили */
-h1, h2, .card h2 {
-  font-family: "ZegerSYSTEM Alt", 'Press Start 2P', monospace;
-  text-shadow: 
-    0 0 10px #ffffff,
-    0 0 20px #ffffff,
-    0 0 40px #ffffff,
-    0 0 70px #ffffff,
-    0 0 90px #ffffff;
-  animation: neon-flicker 4s infinite alternate ease-in-out;
-}
-
-h1 { font-size: 2.4em; margin: 25px 0 10px 0; letter-spacing: 3px; }
-#subtitle { font-size: 1.25em; margin: 10px 0 35px 0; letter-spacing: 2px; opacity: 0.95; }
-
-.btn {
-  display: inline-block;
-  margin: 15px;
-  padding: 15px 30px;
-  border-radius: 30px;
-  background: #000;
-  border: 2px solid #fff;
-  color: #fff;
-  font-family: 'Caveat', cursive;
-  font-size: 1.35em;
-  font-weight: 700;
-  cursor: none;
-}
-.btn:hover {
-  background: #fff;
-  color: #000;
-  box-shadow: 0 0 20px #fff;
-}
-.btn.copied {
-  background: #00ff00 !important;
-  color: #000 !important;
-  border-color: #00ff00;
-}
-
-body {
-  margin: 0;
-  color: #ffffff;
-  text-align: center;
-  overflow-x: hidden;
-  background: radial-gradient(circle at top, #000000, #111111);
-}
-
-#particles {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.page {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  min-height: 100vh;
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
-  transition: 0.6s ease;
-  z-index: 2;
-}
-.page.active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>ANTIBRAINROT_KID</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="ANTIBRAINROT_KID" />
+    <meta property="og:description" content="official website antibainrot_kid." />
+    <meta property="og:image" content="https://i.ibb.co/fGT6R3NB/image.png" />
+    <meta property="og:url" content="https://antibainrotkid2.github.io/ANTIBRAINROT_KID/" />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#5865F2" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    html, body {
+      height: 100%;
+      font-family: "ZegerSYSTEM Alt", 'Press Start 2P', monospace;
+      cursor: none;
+    }
+    /* ===== WHITE NEON CUSTOM CURSOR ===== */
+    #cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      box-shadow:
+        0 0 15px #ffffff,
+        0 0 30px #ffffff,
+        0 0 50px #ffffff;
+      transition: width 0.2s, height 0.2s;
+      mix-blend-mode: difference;
+    }
+    #cursor::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 6px;
+      height: 6px;
+      background: #ffffff;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 12px #ffffff;
+    }
+    /* Падающие частицы — чисто белые */
+    .particle {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: #ffffff;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      box-shadow: 0 0 10px #ffffff;
+      opacity: 0;
+    }
+    /* Остальные стили */
+    h1, h2, .card h2 {
+      font-family: "ZegerSYSTEM Alt", 'Press Start 2P', monospace;
+      text-shadow:
+        0 0 10px #ffffff,
+        0 0 20px #ffffff,
+        0 0 40px #ffffff,
+        0 0 70px #ffffff,
+        0 0 90px #ffffff;
+      animation: neon-flicker 4s infinite alternate ease-in-out;
+    }
+    h1 { font-size: 2.4em; margin: 25px 0 10px 0; letter-spacing: 3px; }
+    #subtitle { font-size: 1.25em; margin: 10px 0 35px 0; letter-spacing: 2px; opacity: 0.95; }
+    .btn {
+      display: inline-block;
+      margin: 15px;
+      padding: 15px 30px;
+      border-radius: 30px;
+      background: #000;
+      border: 2px solid #fff;
+      color: #fff;
+      font-family: 'Caveat', cursive;
+      font-size: 1.35em;
+      font-weight: 700;
+      cursor: none;
+    }
+    .btn:hover {
+      background: #fff;
+      color: #000;
+      box-shadow: 0 0 20px #fff;
+    }
+    .btn.copied {
+      background: #00ff00 !important;
+      color: #000 !important;
+      border-color: #00ff00;
+    }
+    body {
+      margin: 0;
+      color: #ffffff;
+      text-align: center;
+      overflow-x: hidden;
+      background: radial-gradient(circle at top, #000000, #111111);
+    }
+    #particles {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .page {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      min-height: 100vh;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: 0.6s ease;
+      z-index: 2;
+    }
+    .page.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    </style>
 </head>
 <body>
 <canvas id="particles"></canvas>
-
 <!-- Кастомный курсор -->
 <div id="cursor"></div>
 
@@ -144,14 +141,14 @@ body {
   </div>
   <h1>ANTIBRAINROT_KID</h1>
   <h2 id="subtitle"></h2>
-  
+ 
   <a href="https://discord.gg/FurMVU3cPc" class="btn">Official discord</a>
   <a href="https://discord.gg/wVZRRApy6H" class="btn">Official discord 2</a>
   <br>
-  
+ 
   <button class="btn" onclick="openExecutors()">Roblox executors</button>
   <button class="btn" onclick="openScripts()">Our Scripts</button>
-  
+ 
   <div class="card">
     <h2>About</h2>
     <p>Making scripts, shirts, audios in roblox and etc.</p>
@@ -187,11 +184,11 @@ body {
 <div id="scripts" class="page">
   <h1>Our Scripts</h1>
   <p style="margin: 30px;">There's scripts i made</p>
-  
+ 
   <button class="btn" id="hubBtn" onclick="copyScript('hub')">ANTIBRAINROT_KID Hub</button>
   <button class="btn" id="searcherBtn" onclick="copyScript('searcher')">Scriptblox Searcher</button>
   <button class="btn" id="luckyBtn" onclick="copyScript('lucky')">Lucky Block Battlegrounds script</button>
-  
+ 
   <br><br>
   <button class="btn" onclick="goBackToHome()">Back to Home</button>
 </div>
@@ -199,31 +196,26 @@ body {
 <script>
 // Кастомный курсор + белые частицы
 const cursor = document.getElementById('cursor');
-
 document.addEventListener('mousemove', (e) => {
   cursor.style.left = e.clientX + 'px';
   cursor.style.top = e.clientY + 'px';
-
   if (Math.random() < 0.65) {
     createTrailParticle(e.clientX, e.clientY);
   }
 });
-
 function createTrailParticle(x, y) {
   const particle = document.createElement('div');
   particle.classList.add('particle');
-  
+ 
   const size = Math.random() * 5 + 3;
   particle.style.width = size + 'px';
   particle.style.height = size + 'px';
   particle.style.left = x + 'px';
   particle.style.top = y + 'px';
-  
+ 
   document.body.appendChild(particle);
-
   const fallDistance = Math.random() * 90 + 50;
   const duration = Math.random() * 900 + 700;
-
   particle.animate([
     { transform: 'translate(0, 0)', opacity: 0.85 },
     { transform: `translate(${Math.random()*18-9}px, ${fallDistance}px)`, opacity: 0 }
@@ -231,7 +223,6 @@ function createTrailParticle(x, y) {
     duration: duration,
     easing: 'ease-out'
   });
-
   setTimeout(() => particle.remove(), duration + 100);
 }
 
@@ -239,7 +230,6 @@ function createTrailParticle(x, y) {
 const texts = ["Team of bypass.", "Big community.", "Join Today!"];
 let currentIndex = 0;
 const subtitle = document.getElementById("subtitle");
-
 function typeWriter(text, i, callback) {
   if (i < text.length) {
     subtitle.innerHTML = text.substring(0, i + 1) + '<span style="opacity:0.4;">|</span>';
@@ -249,7 +239,6 @@ function typeWriter(text, i, callback) {
     setTimeout(callback, 1800);
   }
 }
-
 function deleteText(text, i, callback) {
   if (i > 0) {
     subtitle.innerHTML = text.substring(0, i - 1) + '<span style="opacity:0.4;">|</span>';
@@ -258,7 +247,6 @@ function deleteText(text, i, callback) {
     callback();
   }
 }
-
 function startTypingCycle() {
   const currentText = texts[currentIndex];
   typeWriter(currentText, 0, () => {
@@ -275,26 +263,21 @@ function openExecutors() {
   document.getElementById("home").classList.remove("active");
   document.getElementById("executors").classList.add("active");
 }
-
 function openScripts() {
   document.getElementById("home").classList.remove("active");
   document.getElementById("scripts").classList.add("active");
 }
-
 function goBackToHome() {
   document.getElementById("scripts").classList.remove("active");
   document.getElementById("home").classList.add("active");
 }
-
 function goBack() {
   document.getElementById("executors").classList.remove("active");
   document.getElementById("home").classList.add("active");
 }
-
 function copyScript(type) {
   let scriptText = "";
   let btnId = "";
-
   if (type === "hub") {
     scriptText = `loadstring(game:HttpGet("https://raw.githubusercontent.com/ANTIBRAINROTKID2/ANTIBRAINROT_KID-Hub-loadscreen/refs/heads/main/LoadScreen"))()`;
     btnId = "hubBtn";
@@ -305,7 +288,6 @@ function copyScript(type) {
     scriptText = `loadstring(game:HttpGet("https://raw.githubusercontent.com/ANTIBRAINROTKID2/Lucky-Hub-Lucky-Block-Battlegrounds-/refs/heads/main/Kid"))()`;
     btnId = "luckyBtn";
   }
-
   navigator.clipboard.writeText(scriptText).then(() => {
     const btn = document.getElementById(btnId);
     const originalText = btn.textContent;
@@ -317,7 +299,6 @@ function copyScript(type) {
     }, 1500);
   });
 }
-
 function openLink(app) {
   const links = {
     xeno: "https://xeno.now", jjsploit: "https://wearedevs.net/d/JJSploit",
@@ -335,14 +316,12 @@ function openLink(app) {
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 let bgParticles = [];
-
 function resize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
 resize();
 window.addEventListener("resize", resize);
-
 function createBgParticles() {
   bgParticles = [];
   for (let i = 0; i < 80; i++) {
@@ -356,7 +335,6 @@ function createBgParticles() {
   }
 }
 createBgParticles();
-
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "white";
@@ -375,18 +353,4 @@ function animate() {
 animate();
 </script>
 </body>
-<head>
-    <meta charset="UTF-8">
-    <title>ANTIBRAINROT_KID</title>
-    
-    <!-- Вот сюда вставь OG-теги -->
-    <meta property="og:title" content="ANTIBRAINROT_KID" />
-    <meta property="og:description" content="official website antibainrot_kid." />
-    <meta property="og:image" content="https://i.ibb.co/fGT6R3NB/image.png" />
-    <meta property="og:url" content="https://antibainrotkid2.github.io/ANTIBRAINROT_KID/" />
-    <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#5865F2" />
-
-    <link href="https://fonts.googleapis.com/...">
-    <style>
-    ...
+</html>
