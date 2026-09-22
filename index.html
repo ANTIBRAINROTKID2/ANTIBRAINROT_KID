@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ANTIBRAINROT_KID</title>
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="ANTIBRAINROT_KID" />
-    <meta property="og:description" content="official website antibrainrot_kid." />
-    <meta property="og:image" content="https://i.ibb.co/fGT6R3NB/image.png" />
-    <meta property="og:url" content="https://antibainrotkid2.github.io/ANTIBRAINROT_KID/" />
+    <meta property="og:description" content="Official website of ANTIBRAINROT_KID." />
+    <meta property="og:image" content="https://antibrainrotkid2.github.io/ANTIBRAINROT_KID/antibrainrotkid.png" />
+    <meta property="og:url" content="https://antibrainrotkid2.github.io/ANTIBRAINROT_KID/" />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#5865F2" />
-    
+
+    <link rel="icon" href="antibrainrotkid.png">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <style>
     html, body {
       height: 100%;
-      font-family: "ZegerSYSTEM Alt", 'Press Start 2P', monospace;
-      cursor: none;
+      font-family: 'Press Start 2P', monospace;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      html, body, .btn { cursor: none; }
     }
     /* ===== WHITE NEON CUSTOM CURSOR ===== */
     #cursor {
@@ -48,6 +52,9 @@
       transform: translate(-50%, -50%);
       box-shadow: 0 0 12px #ffffff;
     }
+    @media (hover: none), (pointer: coarse) {
+      #cursor { display: none; }
+    }
     /* Падающие частицы — чисто белые */
     .particle {
       position: fixed;
@@ -60,9 +67,8 @@
       box-shadow: 0 0 10px #ffffff;
       opacity: 0;
     }
-    /* Остальные стили */
     h1, h2, .card h2 {
-      font-family: "ZegerSYSTEM Alt", 'Press Start 2P', monospace;
+      font-family: 'Press Start 2P', monospace;
       text-shadow:
         0 0 10px #ffffff,
         0 0 20px #ffffff,
@@ -71,8 +77,26 @@
         0 0 90px #ffffff;
       animation: neon-flicker 4s infinite alternate ease-in-out;
     }
-    h1 { font-size: 2.4em; margin: 25px 0 10px 0; letter-spacing: 3px; }
-    #subtitle { font-size: 1.25em; margin: 10px 0 35px 0; letter-spacing: 2px; opacity: 0.95; }
+    @keyframes neon-flicker {
+      0%, 19%, 21%, 23%, 80%, 100% {
+        opacity: 1;
+        text-shadow:
+          0 0 10px #ffffff,
+          0 0 20px #ffffff,
+          0 0 40px #ffffff,
+          0 0 70px #ffffff,
+          0 0 90px #ffffff;
+      }
+      20%, 22%, 81% {
+        opacity: 0.72;
+        text-shadow:
+          0 0 4px #ffffff,
+          0 0 10px #ffffff;
+      }
+    }
+    h1 { font-size: clamp(1.1em, 4vw, 2.4em); margin: 25px 0 10px 0; letter-spacing: 3px; }
+    #subtitle { font-size: clamp(0.7em, 2.4vw, 1.25em); margin: 10px 0 35px 0; letter-spacing: 2px; opacity: 0.95; min-height: 1.6em; }
+    #caret { opacity: 0.4; }
     .btn {
       display: inline-block;
       margin: 15px;
@@ -84,11 +108,21 @@
       font-family: 'Caveat', cursive;
       font-size: 1.35em;
       font-weight: 700;
-      cursor: none;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .btn { cursor: none; }
     }
     .btn:hover {
       background: #fff;
       color: #000;
+      box-shadow: 0 0 20px #fff;
+    }
+    .btn:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 4px;
       box-shadow: 0 0 20px #fff;
     }
     .btn.copied {
@@ -116,16 +150,59 @@
       inset: 0;
       width: 100%;
       min-height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
       opacity: 0;
       transform: translateY(20px);
       pointer-events: none;
-      transition: 0.6s ease;
+      transition: opacity 0.6s ease, transform 0.6s ease;
       z-index: 2;
+      box-sizing: border-box;
+      padding: 24px 16px 48px;
     }
     .page.active {
       opacity: 1;
       transform: translateY(0);
       pointer-events: auto;
+    }
+    .top-image img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border: 2px solid #fff;
+      box-shadow: 0 0 24px #fff;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 8px 4px;
+      max-width: 720px;
+      margin: 0 auto 24px;
+      align-items: stretch;
+    }
+    .grid .btn {
+      margin: 8px;
+    }
+    .card {
+      max-width: 640px;
+      margin: 28px auto 0;
+      padding: 8px 16px 24px;
+    }
+    .card p {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5em;
+      line-height: 1.35;
+      margin: 8px 0 0;
+    }
+    .scripts-note {
+      margin: 30px;
+      font-family: 'Caveat', cursive;
+      font-size: 1.5em;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      h1, h2, .card h2 { animation: none; }
+      .page { transition: none; }
+      #cursor { display: none; }
     }
     </style>
 </head>
@@ -137,18 +214,18 @@
 <!-- HOME -->
 <div id="home" class="page active">
   <div class="top-image">
-    <img src="https://i.ibb.co/fGT6R3NB/image.png">
+    <img src="antibrainrotkid.png" alt="ANTIBRAINROT_KID" width="120" height="120">
   </div>
   <h1>ANTIBRAINROT_KID</h1>
-  <h2 id="subtitle"></h2>
- 
-  <a href="https://discord.gg/FurMVU3cPc" class="btn">Official discord</a>
-  <a href="https://discord.gg/ZuZVXAcpRM" class="btn">Official discord 2</a>
+  <h2 id="subtitle"><span id="typed"></span><span id="caret">|</span></h2>
+
+  <a href="https://discord.gg/FurMVU3cPc" class="btn" target="_blank" rel="noopener noreferrer">Official discord</a>
+  <a href="https://discord.gg/ZuZVXAcpRM" class="btn" target="_blank" rel="noopener noreferrer">Official discord 2</a>
   <br>
- 
-  <button class="btn" onclick="openExecutors()">Roblox executors</button>
-  <button class="btn" onclick="openScripts()">Our Scripts</button>
- 
+
+  <button type="button" class="btn" onclick="openPage('executors')">Roblox executors</button>
+  <button type="button" class="btn" onclick="openPage('scripts')">Our Scripts</button>
+
   <div class="card">
     <h2>About</h2>
     <p>Making scripts, shirts, audios in roblox and etc.</p>
@@ -159,89 +236,101 @@
 <div id="executors" class="page">
   <h1>PC EXECUTORS</h1>
   <div class="grid">
-    <button class="btn" onclick="openLink('xeno')">Xeno</button>
-    <button class="btn" onclick="openLink('jjsploit')">jjsploit</button>
-    <button class="btn" onclick="openLink('velocity')">Velocity</button>
-    <button class="btn" onclick="openLink('solara')">Solara</button>
-    <button class="btn" onclick="openLink('bunni')">Bunni</button>
-    <button class="btn" onclick="openLink('fogoty')">FogotySploit</button>
-    <button class="btn" onclick="openLink('madium')">Madium</button>
-    <button class="btn" onclick="openLink('real')">Real</button>
+    <a class="btn" href="https://xeno.now" target="_blank" rel="noopener noreferrer">Xeno</a>
+    <a class="btn" href="https://wearedevs.net/d/JJSploit" target="_blank" rel="noopener noreferrer">jjsploit</a>
+    <a class="btn" href="https://realvelocity.xyz/" target="_blank" rel="noopener noreferrer">Velocity</a>
+    <a class="btn" href="https://getsolara.dev/" target="_blank" rel="noopener noreferrer">Solara</a>
+    <a class="btn" href="https://discord.gg/bunni-fun" target="_blank" rel="noopener noreferrer">Bunni</a>
+    <a class="btn" href="https://foggysoftworks.xyz/main.html" target="_blank" rel="noopener noreferrer">FogotySploit</a>
+    <a class="btn" href="https://getmadium.net" target="_blank" rel="noopener noreferrer">Madium</a>
+    <a class="btn" href="https://projectreal.gg/" target="_blank" rel="noopener noreferrer">Real</a>
   </div>
   <h1>MOBILE EXECUTORS</h1>
   <div class="grid">
-    <button class="btn" onclick="openLink('delta')">Delta</button>
-    <button class="btn" onclick="openLink('arceus')">Arceus X</button>
-    <button class="btn" onclick="openLink('codex')">Code X</button>
-    <button class="btn" onclick="openLink('eclipse')">Eclipse</button>
+    <a class="btn" href="https://deltaexploits.gg/" target="_blank" rel="noopener noreferrer">Delta</a>
+    <a class="btn" href="https://spdmteam.com/" target="_blank" rel="noopener noreferrer">Arceus X</a>
+    <a class="btn" href="https://codex.lol/" target="_blank" rel="noopener noreferrer">Code X</a>
+    <a class="btn" href="https://eclipse.download/" target="_blank" rel="noopener noreferrer">Eclipse</a>
+    <a class="btn" href="https://vegax.gg/" target="_blank" rel="noopener noreferrer">Vega X</a>
   </div>
-  <button class="btn" onclick="openLink('vega')">Vega X</button>
-  <br><br>
-  <button class="btn" onclick="goBack()">Back</button>
+  <button type="button" class="btn" onclick="goHome()">Back</button>
 </div>
 
 <!-- OUR SCRIPTS -->
 <div id="scripts" class="page">
   <h1>Our Scripts</h1>
-  <p style="margin: 30px;">There's scripts i made</p>
- 
-  <button class="btn" id="hubBtn" onclick="copyScript('hub')">ANTIBRAINROT_KID Hub</button>
-  <button class="btn" id="searcherBtn" onclick="copyScript('searcher')">Scriptblox Searcher</button>
-  <button class="btn" id="luckyBtn" onclick="copyScript('lucky')">Lucky Block Battlegrounds script</button>
- 
+  <p class="scripts-note">There's scripts i made</p>
+
+  <button type="button" class="btn" id="hubBtn" onclick="copyScript('hub')">ANTIBRAINROT_KID Hub</button>
+  <button type="button" class="btn" id="searcherBtn" onclick="copyScript('searcher')">Scriptblox Searcher</button>
+  <button type="button" class="btn" id="luckyBtn" onclick="copyScript('lucky')">Lucky Block Battlegrounds script</button>
+
   <br><br>
-  <button class="btn" onclick="goBackToHome()">Back to Home</button>
+  <button type="button" class="btn" onclick="goHome()">Back to Home</button>
 </div>
 
 <script>
-// Кастомный курсор + белые частицы
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
 const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-  if (Math.random() < 0.65) {
-    createTrailParticle(e.clientX, e.clientY);
+const TRAIL_POOL = 24;
+const trailPool = [];
+let trailIndex = 0;
+
+if (finePointer && !reduceMotion) {
+  for (let i = 0; i < TRAIL_POOL; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    particle.style.display = 'none';
+    document.body.appendChild(particle);
+    trailPool.push(particle);
   }
-});
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    if (Math.random() < 0.35) createTrailParticle(e.clientX, e.clientY);
+  });
+}
+
 function createTrailParticle(x, y) {
-  const particle = document.createElement('div');
-  particle.classList.add('particle');
- 
+  const particle = trailPool[trailIndex];
+  trailIndex = (trailIndex + 1) % TRAIL_POOL;
   const size = Math.random() * 5 + 3;
+  particle.style.display = 'block';
   particle.style.width = size + 'px';
   particle.style.height = size + 'px';
   particle.style.left = x + 'px';
   particle.style.top = y + 'px';
- 
-  document.body.appendChild(particle);
   const fallDistance = Math.random() * 90 + 50;
   const duration = Math.random() * 900 + 700;
+  particle.getAnimations().forEach(a => a.cancel());
   particle.animate([
     { transform: 'translate(0, 0)', opacity: 0.85 },
-    { transform: `translate(${Math.random()*18-9}px, ${fallDistance}px)`, opacity: 0 }
+    { transform: `translate(${Math.random() * 18 - 9}px, ${fallDistance}px)`, opacity: 0 }
   ], {
     duration: duration,
     easing: 'ease-out'
   });
-  setTimeout(() => particle.remove(), duration + 100);
+  setTimeout(() => { particle.style.display = 'none'; }, duration);
 }
 
-// Typewriter Effect
 const texts = ["Team of bypass.", "Big community.", "Join Today!"];
 let currentIndex = 0;
-const subtitle = document.getElementById("subtitle");
+const typed = document.getElementById("typed");
+
 function typeWriter(text, i, callback) {
   if (i < text.length) {
-    subtitle.innerHTML = text.substring(0, i + 1) + '<span style="opacity:0.4;">|</span>';
+    typed.textContent = text.substring(0, i + 1);
     setTimeout(() => typeWriter(text, i + 1, callback), 60);
   } else {
-    subtitle.innerHTML = text + '<span style="opacity:0.4;">|</span>';
+    typed.textContent = text;
     setTimeout(callback, 1800);
   }
 }
 function deleteText(text, i, callback) {
   if (i > 0) {
-    subtitle.innerHTML = text.substring(0, i - 1) + '<span style="opacity:0.4;">|</span>';
+    typed.textContent = text.substring(0, i - 1);
     setTimeout(() => deleteText(text, i - 1, callback), 35);
   } else {
     callback();
@@ -256,63 +345,58 @@ function startTypingCycle() {
     });
   });
 }
-startTypingCycle();
+if (reduceMotion) {
+  typed.textContent = texts[0];
+} else {
+  startTypingCycle();
+}
 
-// Остальные функции
-function openExecutors() {
-  document.getElementById("home").classList.remove("active");
-  document.getElementById("executors").classList.add("active");
+function openPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
-function openScripts() {
-  document.getElementById("home").classList.remove("active");
-  document.getElementById("scripts").classList.add("active");
+function goHome() {
+  openPage('home');
 }
-function goBackToHome() {
-  document.getElementById("scripts").classList.remove("active");
-  document.getElementById("home").classList.add("active");
-}
-function goBack() {
-  document.getElementById("executors").classList.remove("active");
-  document.getElementById("home").classList.add("active");
-}
-function copyScript(type) {
-  let scriptText = "";
-  let btnId = "";
-  if (type === "hub") {
-    scriptText = `loadstring(game:HttpGet("https://raw.githubusercontent.com/ANTIBRAINROTKID2/ANTIBRAINROT_KID-Hub-loadscreen/refs/heads/main/LoadScreen"))()`;
-    btnId = "hubBtn";
-  } else if (type === "searcher") {
-    scriptText = `loadstring(game:HttpGet("https://raw.githubusercontent.com/ANTIBRAINROTKID2/ScriptBlox-Searcher/refs/heads/main/MainScript"))()`;
-    btnId = "searcherBtn";
-  } else if (type === "lucky") {
-    scriptText = `loadstring(game:HttpGet("https://raw.githubusercontent.com/ANTIBRAINROTKID2/Lucky-Hub-Lucky-Block-Battlegrounds-/refs/heads/main/Kid"))()`;
-    btnId = "luckyBtn";
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') goHome();
+});
+
+const SCRIPT_MAP = {
+  hub: {
+    text: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/ANTIBRAINROTKID2/ANTIBRAINROT_KID-Hub-loadscreen/refs/heads/main/LoadScreen"))()',
+    btnId: 'hubBtn'
+  },
+  searcher: {
+    text: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/ANTIBRAINROTKID2/ScriptBlox-Searcher/refs/heads/main/MainScript"))()',
+    btnId: 'searcherBtn'
+  },
+  lucky: {
+    text: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/ANTIBRAINROTKID2/Lucky-Hub-Lucky-Block-Battlegrounds-/refs/heads/main/Kid"))()',
+    btnId: 'luckyBtn'
   }
-  navigator.clipboard.writeText(scriptText).then(() => {
-    const btn = document.getElementById(btnId);
-    const originalText = btn.textContent;
-    btn.classList.add("copied");
-    btn.textContent = "Copied script!";
+};
+
+function copyScript(type) {
+  const entry = SCRIPT_MAP[type];
+  if (!entry) return;
+  const btn = document.getElementById(entry.btnId);
+  const originalText = btn.textContent;
+  const flash = (label) => {
+    btn.classList.add('copied');
+    btn.textContent = label;
     setTimeout(() => {
-      btn.classList.remove("copied");
+      btn.classList.remove('copied');
       btn.textContent = originalText;
     }, 1500);
+  };
+  navigator.clipboard.writeText(entry.text).then(() => {
+    flash('Copied script!');
+  }).catch(() => {
+    flash('Copy failed');
   });
 }
-function openLink(app) {
-  const links = {
-    xeno: "https://xeno.now", jjsploit: "https://wearedevs.net/d/JJSploit",
-    velocity: "https://realvelocity.xyz/", solara: "https://getsolara.dev/",
-    bunni: "https://discord.gg/bunni-fun", fogoty: "https://foggysoftworks.xyz/main.html",
-    delta: "https://deltaexploits.gg/", arceus: "https://spdmteam.com/",
-    codex: "https://codex.lol/", eclipse: "https://eclipse.download/",
-    vega: "https://vegax.gg/", madium: "https://getmadium.net",
-    real: "https://projectreal.gg/"
-  };
-  if (links[app]) window.open(links[app], "_blank");
-}
 
-/* Background Particles */
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 let bgParticles = [];
@@ -324,7 +408,8 @@ resize();
 window.addEventListener("resize", resize);
 function createBgParticles() {
   bgParticles = [];
-  for (let i = 0; i < 80; i++) {
+  const count = reduceMotion ? 20 : 80;
+  for (let i = 0; i < count; i++) {
     bgParticles.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
